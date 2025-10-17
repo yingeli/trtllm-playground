@@ -14,8 +14,7 @@ RUN apt-get update && \
     nano \
     npm \
     sudo \
-    && rm -rf /var/lib/apt/lists/* \
-    && npm install -g npm
+    && rm -rf /var/lib/apt/lists/*
 
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
