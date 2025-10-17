@@ -41,5 +41,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | b
     && nvm install --lts \
     && npm install -g @anthropic-ai/claude-code
 
+COPY .devcontainer/claude/ /home/coder/.claude/
+
 # Set up Codex config
 # COPY .devcontainer/codex/ /home/coder/.codex/
