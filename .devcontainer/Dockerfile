@@ -19,7 +19,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh | ba
     && rm -rf /var/lib/apt/lists/*
 
 # Install Claude Code
-RUN npm install -g @anthropic-ai/claude-code
+# RUN npm install -g @anthropic-ai/claude-code
 
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
