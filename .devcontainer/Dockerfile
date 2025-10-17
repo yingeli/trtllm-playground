@@ -12,8 +12,10 @@ RUN apt-get update && \
     jq \
     locales \
     nano \
+    npm \
     sudo \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && npm install -g npm
 
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
@@ -35,11 +37,14 @@ RUN userdel -r ubuntu && \
 USER coder
 
 # Install nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
     # && export NVM_DIR="$HOME/.nvm" \
     # && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
     # && nvm install --lts \
     # && npm install -g @anthropic-ai/claude-code
+
+# Install Claude Code
+RUN npm install -g @anthropic-ai/claude-code
 
 # Set up Claude Code config
 COPY .devcontainer/claude/ /home/coder/.claude/
