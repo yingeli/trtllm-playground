@@ -2,7 +2,8 @@ FROM nvcr.io/nvidia/tensorrt-llm/release:1.2.0rc0.post1
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && \
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh | bash - \
+    && apt-get update && \
     apt-get install -y --no-install-recommends \
     bash \
     ca-certificates \
@@ -12,6 +13,7 @@ RUN apt-get update && \
     jq \
     locales \
     nano \
+    nodejs \
     npm \
     sudo \
     && rm -rf /var/lib/apt/lists/*
