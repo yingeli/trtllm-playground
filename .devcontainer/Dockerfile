@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorrt-llm/release:1.2.0rc0
+FROM nvcr.io/nvidia/tensorrt-llm/release:1.2.0rc0.post1
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,7 +13,9 @@ RUN apt-get update && \
     locales \
     nano \
     sudo \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash \
+    && nvm install lts
 
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
@@ -34,5 +36,8 @@ RUN userdel -r ubuntu && \
 
 USER coder
 
+# Install Claude Code
+RUN npm install -g @anthropic-ai/claude-code
+
 # Set up Codex config
-COPY .devcontainer/codex/ /home/coder/.codex/
+# COPY .devcontainer/codex/ /home/coder/.codex/
