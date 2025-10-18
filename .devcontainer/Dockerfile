@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorrt-llm/release:1.2.0rc0.post1
+FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:latest
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
@@ -18,9 +18,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh | ba
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Claude Code
-# RUN npm install -g @anthropic-ai/claude-code
-
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
 
@@ -39,13 +36,6 @@ RUN userdel -r ubuntu && \
     echo "coder ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/nopasswd
 
 USER coder
-
-# Install nvm
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-    # && export NVM_DIR="$HOME/.nvm" \
-    # && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    # && nvm install --lts \
-    # && npm install -g @anthropic-ai/claude-code
 
 # Set up Claude Code config
 COPY .devcontainer/claude/ /home/coder/.claude/
