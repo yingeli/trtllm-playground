@@ -21,6 +21,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh | ba
 # Install Claude Code
 RUN npm install -g @anthropic-ai/claude-code
 
+# Qwen3-Omni support
+RUN pip install transformers==4.57.1 && \
+    pip install qwen-omni-utils[decord]
+
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
 
