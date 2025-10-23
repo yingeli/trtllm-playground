@@ -1,12 +1,13 @@
 {
   "model": "databricks-claude-sonnet-4-5",
   "env": {
-    "ANTHROPIC_BASE_URL": "https://litellm.yglabs.eu.org",
     "ANTHROPIC_MODEL": "databricks-claude-sonnet-4-5",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "databricks-claude-sonnet-4-5",
+    "ANTHROPIC_BASE_URL": "https://adb-2338038947170903.3.azuredatabricks.net/serving-endpoints/anthropic",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "databricks-claude-opus-4-1",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "databricks-claude-sonnet-4-5",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "databricks-claude-sonnet-4-5",
     "CLAUDE_CODE_SUBAGENT_MODEL": "databricks-claude-sonnet-4-5",
     "ANTHROPIC_SMALL_FAST_MODEL": "databricks-claude-sonnet-4-5",
-    "ANTHROPIC_AUTH_TOKEN": "abcd1234!"
+    "ANTHROPIC_AUTH_TOKEN": "apikey"
   }
 }
