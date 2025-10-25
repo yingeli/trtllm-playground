@@ -1,4 +1,4 @@
-FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:mrope
+FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:latest
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
