@@ -2,8 +2,7 @@ FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:latest
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh | bash - \
-    && apt-get update && \
+RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     bash \
     ca-certificates \
@@ -13,13 +12,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh | ba
     jq \
     locales \
     nano \
-    nodejs \
-    npm \
     sudo \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Claude Code
-RUN npm install -g @anthropic-ai/claude-code
 
 # Qwen3-Omni support
 RUN pip install transformers==4.57.1 && \
@@ -45,7 +39,7 @@ RUN userdel -r ubuntu && \
 USER coder
 
 # Set up Claude Code config
-COPY .devcontainer/claude/ /home/coder/.claude/
+# COPY .devcontainer/claude/ /home/coder/.claude/
 
 # Set up Codex config
 # COPY .devcontainer/codex/ /home/coder/.codex/
