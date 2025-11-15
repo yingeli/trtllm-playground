@@ -16,7 +16,8 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Qwen3-Omni support
-RUN pip install transformers==4.57.1 && \
+RUN pip install --upgrade torchao && \
+    pip install transformers==4.57.1 && \
     pip install qwen-omni-utils[decord]
 
 # Generate the desired locale (en_US.UTF-8)
