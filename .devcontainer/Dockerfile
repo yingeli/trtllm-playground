@@ -1,5 +1,5 @@
 # FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:latest
-FROM nvcr.io/nvidia/tensorrt-llm/release:1.2.0rc7
+FROM nvcr.io/nvidia/tensorrt-llm/release:1.3.0rc3
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
