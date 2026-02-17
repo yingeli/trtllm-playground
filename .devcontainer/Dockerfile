@@ -1,5 +1,5 @@
-# FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:latest
-FROM nvcr.io/nvidia/tensorrt-llm/release:1.3.0rc3
+FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:latest
+# FROM nvcr.io/nvidia/tensorrt-llm/release:1.3.0rc3
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
@@ -15,11 +15,6 @@ RUN apt-get update && \
     nano \
     sudo \
     && rm -rf /var/lib/apt/lists/*
-
-# Qwen3-Omni support
-RUN pip install --upgrade torchao && \
-    pip install transformers==4.57.1 && \
-    pip install qwen-omni-utils[decord]
 
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
