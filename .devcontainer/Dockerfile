@@ -1,7 +1,8 @@
 # FROM nvcr.io/nvidia/tensorrt-llm/release:1.1.0
 # FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:1.1.0-cpp-enc-pt
 # FROM nvcr.io/nvidia/tensorrt-llm/release:1.3.0rc3
-FROM ygsea.azurecr.io/tritonserver:25.12-trtllm-python-py3-trt-cpp-enc-pt-sdk
+# FROM ygsea.azurecr.io/tritonserver:25.12-trtllm-python-py3-trt-cpp-enc-pt-sdk
+FROM ygsea.azurecr.io/yingeli/tensorrt_llm/release:1.1.0-cpp-enc-pt-tritonserver
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
