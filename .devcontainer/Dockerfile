@@ -17,7 +17,10 @@ RUN apt-get update && \
     locales \
     nano \
     sudo \
+    tmux \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://tailscale.com/install.sh | sh
 
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
